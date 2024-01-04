@@ -1,6 +1,4 @@
 import { NextResponse } from "next/server";
-import type { NextApiRequest } from 'next'
-import { useSearchParams } from 'next/navigation'
 import { auth } from "@clerk/nextjs";
 import prisma from "@/app/utils/connect";
 
@@ -52,7 +50,7 @@ export async function POST(req: Request){
     }
 }
 
-export async function GET(req: NextApiRequest){
+export async function GET(req: Request){
     try{
 
         // const { userId } = auth();
