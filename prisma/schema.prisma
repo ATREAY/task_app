@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model Task{
+  id                String      @id @default(cuid()) @map("_id")
+  title             String
+  ftitle            String
+  description       String?
+  fdescription      String?
+  category          String
+  date              String
+  isCompleted       Boolean     @default(false)
+  isImportant       Boolean     @default(false)
+  xpPoints          Int         @default(0)
+  totalXpPoints     Int         
+
+  createdAt         DateTime    @default(now()) @map("created_at")
+  updatedAt         DateTime    @default(now()) @updatedAt @map("updated_at")
+  userId            String      
+}
