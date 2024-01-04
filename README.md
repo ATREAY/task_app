@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Taskify
 
-## Getting Started
+## Description
 
-First, run the development server:
+Taskify is a feature-rich task completion website that rewards users with XP for each completed task, determined by the selected category. The platform aims to streamline task management, offering a personalized experience through a royalty-based XP system. Users can gain XP points by completing tasks across various categories, contributing to a sense of achievement and progress.
+
+## Technology Used:
+
+### Languages:
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+### Database:
+
+- [MongoDB](https://www.mongodb.com/)
+- [Prisma](https://www.prisma.io/)
+
+### Authentication:
+
+- [Clerk](https://clerk.com/)
+
+## Steps to Run Taskify Locally:
+
+### 1. Install all required dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+    npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Create a `.env.local` file and include the following environment variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+    CLERK_SECRET_KEY=
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_OUT_URL=
+```
 
-## Learn More
+### 3. Install Prisma for MongoDB:
 
-To learn more about Next.js, take a look at the following resources:
+<b>a. Run the following command:</b>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+    npx prisma init --datasource-provider MongoDB
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<b>b.  In the generated `.env` file, add your MongoDB driver URL with your username, password, and database name.</b>
 
-## Deploy on Vercel
+<b>c. Generate the database based on the Prisma schema:</b>
+    
+```bash
+    npx prisma generate
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<b>d. Open the Prisma dashboard to verify the database setup:</b>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+    npx prisma studio
+```
+
+### 4. Start the project:
+
+```bash
+    npm run dev
+```
+
+## Connect With Me:
+
+If you need any assistance in setting up this project, feel free to reach out on [Twitter](https://twitter.com/AtreayKukanur) or [LinkedIn](https://www.linkedin.com/in/atreay-kukanur/).
